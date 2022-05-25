@@ -2,6 +2,7 @@ package jacksontest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -12,6 +13,11 @@ public class JsonTest {
 
     private String exampleJsonSource = "{\n    \"title\": \"Coder from Scratch\",\n    \"author\": \"Shogunato\"\n}";
     private String dayExampleJsonSource = "{\n    \"date\": \"2019-12-25\",\n    \"name\": \"Christmas Day\"\n}";
+    private String arrayExampleJsonSource = "{\n    \"authorName\": \"Giuseppe\",\n    \"books\": [\n\n        "+
+    "{\n            \"title\": \"CSGO: How to not bait your friends and actually play like a team\",\n"+
+    "            \"inPrint\": true,\n            \"publishDate\": \"2022-05-25\"\n        },\n\n"        +
+    "{\n            \"title\": \"Chess: How to not give pieces away like Kenshi\",\n"+
+    "            \"inPrint\": false,\n            \"publishDate\": \"2022-03-22\"\n        }\n\n    ]\n\n}";
 
     @Test
     void testParse() {
@@ -62,6 +68,16 @@ public class JsonTest {
         DayTestCaseJson pojo = Json.fromJson(node, DayTestCaseJson.class);
 
         assertEquals("2019-12-25", pojo.getDate().toString());
+
+    }
+
+    @Test
+    void listTest() {
+
+        JsonNode node = Json.parse(arrayExampleJsonSource);
+        AuthorTestCaseJson pojo = Json.fromJson(node, AuthorTestCaseJson.class);
+
+        assertEquals("Giuseppe", pojo.getAuthorName());
 
     }
 }
