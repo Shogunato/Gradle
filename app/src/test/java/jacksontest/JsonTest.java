@@ -3,7 +3,6 @@ package jacksontest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.conversions.DateConversion;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
