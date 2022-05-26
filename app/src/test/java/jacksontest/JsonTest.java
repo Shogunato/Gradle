@@ -11,6 +11,7 @@ import jacksontest.testobjects.*;
 
 public class JsonTest {
 
+    //Examples to be used in the test cases
     private String exampleJsonSource = "{\n    \"title\": \"Coder from Scratch\",\n    \"author\": \"Shogunato\"\n}";
     private String dayExampleJsonSource = "{\n    \"date\": \"2019-12-25\",\n    \"name\": \"Christmas Day\"\n}";
     private String arrayExampleJsonSource = "{\n    \"authorName\": \"Giuseppe\",\n    \"books\": [\n\n        "+

@@ -9,8 +9,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+//Utility class for using Jackson
 public class Json {
     
+
+    //Object used for Json manipulation
     private static ObjectMapper om = getObjectMapper();
     private static ObjectMapper getObjectMapper() {
         return new ObjectMapper()
@@ -18,6 +21,7 @@ public class Json {
                                 .registerModule(new JavaTimeModule());
     }
 
+    //Recieves data in string format and turns it into a JsonNode Object
     public static JsonNode parse(String src) {
 
         try{
@@ -29,6 +33,7 @@ public class Json {
         
     }
 
+    //Turns JsonNode into an Object of type T
     public static <T> T fromJson(JsonNode node, Class<T> clazz) {
 
         try {
@@ -40,10 +45,12 @@ public class Json {
         
     }
 
+    //Turns an Object into a JsonNode
     public static JsonNode toJson(Object objToJason) {
         return om.valueToTree(objToJason);
     }
 
+    //Returns a string version of the receieved JsonNode
     public static String stringify(JsonNode node, boolean pretty) {
 
         try {
